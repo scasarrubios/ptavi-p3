@@ -9,11 +9,7 @@ class SmallSMILHandler(ContentHandler):
 
     def __init__(self):
 
-        posibatts = ['width', 'height', 'background-color', 'id', 'top',
-                     'bottom', 'left', 'right', 'src', 'region', 'begin',
-                     'dur']
         self.tags = []
-        self.tagatts = []
 
     def startElement(self, name, attrs):
 
