@@ -26,9 +26,8 @@ class SmallSMILHandler(ContentHandler):
                 tagdicc = {}
                 attdicc = {}
                 for att in posibatts:
-
-                    attdicc[str(att)] = attrs.get(str(att), "")
-
+                    if str(attrs.get(str(att))) != 'None':
+                        attdicc[str(att)] = attrs.get(str(att), "")
                 tagdicc[str(name)] = attdicc
                 self.tags.append(tagdicc)
 
