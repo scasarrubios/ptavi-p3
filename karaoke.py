@@ -14,11 +14,10 @@ if __name__ == "__main__":
     parser.setContentHandler(sHandler)
     parser.parse(open(sys.argv[1]))
     tags = sHandler.tags
-    replace = {"': '": '="', "'}}, ": '"\n', "', '": '"\t', "': {'": '\t',
-               "'}}]": '"', "{'": '', "': ": '\t', '[': ''}
-    #elementos a remplazar con sus reemplazamientos deseados
-    keys = ["': '", "'}}, ", "', '", "': {'", "'}}]", "{'", "': ", '[']
-    #claves de los elementos a reemplazar para hacerlo de manera ordenada
-    for elem in keys:
-        tags = str(tags).replace(elem, replace[elem])
-    print(tags)
+    string = ''
+    for line in tags:
+        for tag in line:
+            string = string + '\n' + tag + '\t'
+            for att in line[tag]:
+                string = string + att + '="' + line[tag][att] + '"\t'
+    print(string)
