@@ -21,13 +21,14 @@ if __name__ == "__main__":
             for att in line[tag]:
                 if line[tag][att][:7] == "http://":
                     urlretrieve(line[tag][att])
-                    print(line[tag][att])
+                    url = line[tag][att].split('/')
+                    line[tag][att] = url[-1]
     string = ''
     for line in tags_list:
         for tag in line:
             string = string + '\n' + tag + '\t'
             for att in line[tag]:
-                string = string + att + '="' + line[tag][att] + '"\t'
+                string = string + att + '="' + str(line[tag][att]) + '\t'
     print(string)
     data = {}
     nombre = str(sys.argv[1]).strip(".smil") + '.json'
