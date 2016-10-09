@@ -14,7 +14,7 @@ if __name__ == "__main__":
     sHandler = SmallSMILHandler()
     parser.setContentHandler(sHandler)
     parser.parse(open(sys.argv[1]))
-    tags = sHandler.tags
+    tags = sHandler.get_tags()
     string = ''
     for line in tags:
         for tag in line:
