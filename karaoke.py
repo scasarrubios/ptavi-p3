@@ -34,10 +34,7 @@ class KaraokeLocal():
         else:
             nombre = fich_name
         fichero = open(nombre, 'w')
-        for line in self.tags_list:
-            for tag in line:
-                data[tag] = json.dumps(line[tag])
-        json.dump(data, fichero)
+        json.dump(self.tags_list, fichero)
 
     def do_local(self):
         for line in self.tags_list:
